@@ -24,7 +24,12 @@ function PlantPage() {
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
-      <Search searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+
+      <Search
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
+
       <PlantList plants={visiblePlants} />
     </main>
   );
