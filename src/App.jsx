@@ -1,21 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-function Home() {
-  return (
-    <div>
-      <h1>Plant Shop</h1>
-      <p>Welcome to the Plant Shop.</p>
-    </div>
-  );
-}
+import React from "react";
+import Header from "./Header";
+import PlantPage from "./PlantPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+    <div className="app">
+      <Header />
+      <PlantPage />
+    </div>
   );
 }
 

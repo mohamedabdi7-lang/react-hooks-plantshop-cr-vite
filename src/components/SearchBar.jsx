@@ -1,19 +1,18 @@
-function SearchBar({ searchTerm, setSearchTerm }) {
-  return (
-    <div className="search">
-      <label htmlFor="search">
-        Search Plants:
-      </label>
+import React from "react";
 
+function Search({ searchQuery, onSearchChange }) {
+  return (
+    <div className="searchbar">
+      <label htmlFor="search">Search Plants:</label>
       <input
-        id="search"
         type="text"
-        placeholder="Search by plant name..."
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
+        id="search"
+        placeholder="Type a name to search..."
+        value={searchQuery}
+        onChange={(event) => onSearchChange(event.target.value)}
       />
     </div>
   );
 }
 
-export default SearchBar;
+export default Search;

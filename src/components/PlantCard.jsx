@@ -1,23 +1,21 @@
-function PlantCard({ plant, markAsSoldOut }) {
+import React, { useState } from "react";
+
+function PlantCard({ plant }) {
+  const [isInStock, setIsInStock] = useState(true);
+
   return (
-    <div className={plant.soldOut ? "plant-card sold-out" : "plant-card"}>
-      <img
-        src={plant.image}
-        alt={plant.name}
-      />
-
-      <h2>{plant.name}</h2>
-
-      <p>${plant.price.toFixed(2)}</p>
-
-      {plant.soldOut ? (
-        <p className="sold-text">Sold Out</p>
-      ) : (
-        <button onClick={() => markAsSoldOut(plant.id)}>
-          Mark as Sold Out
+    <li className="card" data-testid="plant-item">
+      <img src={plant.image} alt={plant.name} />
+      <h4>{plant.name}</h4>
+      <p>Price: {plant.price}</p>
+      {isInStock ? (
+        <button className="primary" onClick={() => setIsInStock(false)}>
+          In Stock
         </button>
+      ) : (
+        <button onClick={() => setIsInStock(true)}>Out of Stock</button>
       )}
-    </div>
+    </li>
   );
 }
 
